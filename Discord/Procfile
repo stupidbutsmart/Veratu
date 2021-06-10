@@ -1,1 +1,1 @@
-Worker : node scr/main.js
+Worker: node scr/main.js
