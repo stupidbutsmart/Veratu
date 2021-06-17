@@ -1,0 +1,6 @@
+{
+    "files.defaultLanguage": "${activeEditorLanguage}",
+    "editor.tabSize": 2,
+    "editor.fontSize": 13,
+    "editor.fontLigatures": true
+}
