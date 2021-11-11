@@ -1,8 +1,8 @@
 //all imports
 require("dotenv").config();
 const { checkModule, checkProperty } = require("./utils/validateCommands");
-const {Client , Intents} = require("discord.js");
-const client = new Client({intents : [Intents.FLAGS.GUILDS]});
+const { Client, Intents } = require("discord.js");
+const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
 const db = require("./utils/db");
 const fs = require("fs").promises;
 const path = require("path");
@@ -73,6 +73,6 @@ db.connect((err) => {
   }
 })();
 // // testing grounds
-// client.on('message' , m => {
-//   m.mentions.members.first().voice.setChannel()
-// })
+// client.on("message", (m) => {
+//   m.mentions.members.first().voice.setChannel();
+// });
