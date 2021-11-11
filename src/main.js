@@ -73,6 +73,6 @@ db.connect((err) => {
   }
 })();
 // // testing grounds
-// // client.on('message' , m => {
-// //   m.mentions.members.first().voice.setChannel()
-// // })
+// client.on('message' , m => {
+//   m.mentions.members.first().voice.setChannel()
+// })
