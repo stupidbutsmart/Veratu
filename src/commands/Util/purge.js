@@ -29,6 +29,6 @@ module.exports = {
       }
     }
   },
-  aliases: ["clear", "p"],
+  aliases: ["clear"],
   description: "This command will bulk delete messages",
 };

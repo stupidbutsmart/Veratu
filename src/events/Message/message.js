@@ -10,10 +10,12 @@ module.exports = async (client, message) => {
   //Message filtering
   let messageToAnalyse = message.content.split(" ");
   for (let i = 0; i < messageToAnalyse.length; i++) {
-    if (badWords.array.includes(messageToAnalyse[i].toLowerCase())) {
-      message.delete();
-      message.reply("We are a family-friendly server! No cursing is allowed");
-    }
+    try {
+      if (badWords.array.includes(messageToAnalyse[i].toLowerCase())) {
+        message.delete();
+        message.reply("We are a family-friendly server! No cursing is allowed");
+      }
+    } catch (err) {}
   }
   //identifying and running commands
   if (!message.content.startsWith(prefix)) return;
