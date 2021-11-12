@@ -5,7 +5,7 @@ module.exports = {
       return message.channel.send("You need to be in a voice channel.");
     const { Stream } = require("./../../utils/currentqueue");
     let name = ["Queue:"];
-    for (let i = 0; i < Stream.length; i++) {
+    for (let i = 1; i < Stream.length; i++) {
       name.push(`**#${i + 1} ${Stream[i].title}**`);
     }
     if (name.length < 2) return;
