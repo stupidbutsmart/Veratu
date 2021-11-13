@@ -15,7 +15,10 @@ module.exports = async (client, message) => {
         message.delete();
         message.reply("We are a family-friendly server! No cursing is allowed");
       }
-    } catch (err) {}
+    } catch (err) {
+      message.delete();
+      console.log(err);
+    }
   }
   //identifying and running commands
   if (!message.content.startsWith(prefix)) return;
