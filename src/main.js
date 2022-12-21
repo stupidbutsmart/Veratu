@@ -72,7 +72,7 @@ db.connect((err) => {
     }
   }
 })();
-client.login("ODg4MDcyOTcwMzI3NzE1ODcw.YUNYZw.WRpVu0i6CkqXbXjkFEMWoEABfoI");
+client.login(process.env.TOKEN);
 // // testing grounds
 // client.on("message", (m) => {
 //   m.mentions.members.first().voice.setChannel();

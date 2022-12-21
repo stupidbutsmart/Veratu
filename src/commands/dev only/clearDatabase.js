@@ -1,7 +1,6 @@
 module.exports = {
   run: async (client, message, args) => {
     if (message.author.id != 541552527427239940) return;
-
     const db = require("./../../utils/db");
     if (!args) {
       return message.reply("Which collection would you like to delete?");

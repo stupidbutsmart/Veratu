@@ -1,8 +1,8 @@
 module.exports = {
   run: async (client, message, args) => {
     const db = require("./../../utils/db");
+    const filter = JSON.parse(`{"name" : "${message.author.tag}"}`);
     if (args[0] === "open" || args[0] === "create") {
-      const filter = JSON.parse(`{"${message.author.tag}" : "true"}`);
       db.getDB()
         .collection("Tickets")
         .findOne(filter, (err, result) => {
@@ -27,13 +27,12 @@ module.exports = {
               })
               .then((channel) => {
                 const data = JSON.parse(
-                  `{"${message.author.tag}" : "true","${message.author.id}" : "${channel.id}"}`
+                  `{"name" : "${message.author.tag}","channel_id" : "${channel.id}"}`
                 );
                 db.getDB()
                   .collection("Tickets")
                   .insertOne(data, async (err, result) => {
                     if (err) throw err;
-
                     const m = await message.channel.send("Ticket created!");
                     m.delete({ timeout: 3000 });
                   });
@@ -41,7 +40,6 @@ module.exports = {
           }
         });
     } else if (args[0] === "close" || args[0] === "delete") {
-      const filter = JSON.parse(`{"${message.author.tag}" : "true"}`);
       db.getDB()
         .collection("Tickets")
         .findOne(filter, async (err, result) => {
@@ -50,7 +48,7 @@ module.exports = {
             return message.channel.send("You dont have a ticket to close.");
           } else {
             await message.guild.channels.cache
-              .get(result[message.author.id])
+              .get(result.channel_id)
               .delete();
             db.getDB()
               .collection("Tickets")
